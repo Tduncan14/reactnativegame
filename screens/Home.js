@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet,Text,View,Button} from 'react-native';
+import { StyleSheet,Text,View,Button,TouchableHighlight} from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 
 
@@ -11,7 +11,15 @@ export default function Home (){
 
 return(
     <View style={styles.container}>
-     <Button onPress={()=> navigation.navigate('Game')} title="Start game!" />
+     {/* <Button onPress={()=> navigation.navigate('Game')} title="Start game!" /> */}
+
+     <TouchableHighlight onPress={() => navigation.navigate('Game')}
+       style={styles.button} >
+
+       <Text style={styles.buttonText}>Start game !</Text>
+       </TouchableHighlight>
+
+     
     </View>
 )
 
@@ -26,6 +34,23 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center'
  
+ },
+
+
+ button:{
+     width:300,
+     height:300,
+     display:'flex',
+     alignItems:'center',
+     justifyContent:'space-around',
+     borderRadius:150,
+     backgroundColor:'purple'
+ },
+
+
+ buttonText:{
+     color:'white',
+     fontSize:48,
  }
 
 
